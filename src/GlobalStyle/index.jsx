@@ -6,9 +6,24 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    color: var(--cor-texto-secundario);
+  }
+
+  :root{
+    --cor-primaria:#046645;
+    --cor-secundaria:#52302A;
+    --cor-bordas:#CCBEBC;
+    --cor-planos-fundo:#FAF6F5;
+    --cor-texto-primario:#292929;
+    --cor-texto-secundario:#525252;
+    --cor-camadas-neutras:#00000050;
+  }
+
+  body{
+    background-color: var(--cor-planos-fundo);
   }
   
-  a, button {
+  a, button { 
     text-decoration: none;
     border: none;
     background: none;
@@ -62,6 +77,7 @@ const GlobalStyle = createGlobalStyle`
   select {
     appearance: none;
   }
+
 `;
 
 export default GlobalStyle;
