@@ -9,9 +9,10 @@ export const Container = styled.div`
   min-height: 100vh;
   gap: 50px;
   box-sizing: border-box;
+  margin: 0 auto;
+  width: 359px;
   @media only screen and (min-width: 744px) {
     width: 384px;
-    margin: 0 auto;
   }
   @media only screen and (min-width: 1280px) {
     flex-direction: row;

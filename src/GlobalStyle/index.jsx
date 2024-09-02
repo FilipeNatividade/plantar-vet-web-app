@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     --cor-texto-primario:#292929;
     --cor-texto-secundario:#525252;
     --cor-camadas-neutras:#00000050;
+    --cor-bg-header:#E0DDDC;
   }
 
   body{
@@ -76,6 +77,12 @@ const GlobalStyle = createGlobalStyle`
   
   select {
     appearance: none;
+  }
+
+  @media only screen and (min-width: 708px) {
+   .menu-mobile{
+    display: none;
+   }
   }
 
 `;

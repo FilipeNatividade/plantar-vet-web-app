@@ -1,22 +1,26 @@
 import React from 'react';
 import * as S from './styles.jsx';
 
-export const Title = ({ props }) => {
-  return <S.Title>{props}</S.Title>;
+export const Title = ({ props, color }) => {
+  return (
+    <S.Title color={color} style={{ marginBottom: '0' }}>
+      {props}
+    </S.Title>
+  );
 };
 
-export const SubTitle = ({ props }) => {
-  return <S.SubTitle>{props}</S.SubTitle>;
+export const SubTitle = ({ props, color }) => {
+  return <S.SubTitle color={color}>{props}</S.SubTitle>;
 };
 
 export const Text = ({ props }) => {
   return <S.Text>{props}</S.Text>;
 };
 
-export const SubText = ({ props }) => {
-  return <S.SubText>{props}</S.SubText>;
+export const SubText = ({ props, color }) => {
+  return <S.SubText color={color}>{props}</S.SubText>;
 };
 
-export const Label = ({ props }) => {
-  return <S.Label>{props}</S.Label>;
+export const Label = ({ props, color }) => {
+  return <S.Label color={color}>{props}</S.Label>;
 };

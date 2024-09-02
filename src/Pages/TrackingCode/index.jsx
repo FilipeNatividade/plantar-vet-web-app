@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { Title, SubTitle, Label } from '../../Components/Texts';
-import logo from '../../assets/logo.png';
 import { CustomContainer } from '../../Components/CustomContainer';
-import * as S from './style';
 import { CustomInput } from '../../Components/CustomInput';
 import { CustomButtom } from '../../Components/CustomButtom';
+import { GetVerificationCode } from '../../Services';
+import { useNavigate } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import logo from '../../assets/logo.png';
+import * as S from './style';
 
 export const TrackingCode = () => {
   const [inputValue, setInputValue] = useState('');
   const [codeError, setCodeError] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -20,7 +24,15 @@ export const TrackingCode = () => {
   };
 
   const handleButtomClick = () => {
-    console.log(inputValue);
+    console.log('inputValue', inputValue);
+    sessionStorage.setItem('code', inputValue);
+    navigate(`/resumoDoPedido/${inputValue}`);
+
+    // GetVerificationCode(inputValue)
+    //   .then((response) => {
+    //     console.log('response', response);
+    //   })
+    //   .catch((error) => console.log(error));
   };
 
   return (
@@ -43,7 +55,7 @@ export const TrackingCode = () => {
         />
 
         <CustomButtom
-          onClick={handleButtomClick()}
+          onClick={handleButtomClick}
           text="Avançar"
           icon={<ArrowForwardIcon />}
         />
