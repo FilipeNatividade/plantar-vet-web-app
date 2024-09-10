@@ -18,6 +18,7 @@ export const Container = styled.div`
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--cor-bg-header);
   padding: 16px;
   box-sizing: border-box;
@@ -29,5 +30,22 @@ export const BtnBox = styled.div`
   @media only screen and (min-width: 744px) {
     width: 256px;
     margin-left: auto;
+  }
+`;
+
+export const DownloadBtn = styled.a`
+  background-color: ${({ disable }) => (!disable ? '#cccccc' : '#046645')};
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  gap: 5px;
+  color: ${({ disable }) => (!disable ? '#666666' : '#fff !important')};
+  height: 40px;
+
+  svg {
+    fill: ${({ disable }) => (!disable ? '#666666' : '#fff ')};
+    font-size: 12px;
   }
 `;

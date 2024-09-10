@@ -15,4 +15,14 @@ export const Button = styled.button`
     fill: #fff;
     font-size: 12px;
   }
+
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+
+    svg {
+      fill: #666666;
+    }
+  }
 `;

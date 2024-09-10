@@ -3,7 +3,7 @@ import { Title, SubTitle, Label } from '../../Components/Texts';
 import { CustomContainer } from '../../Components/CustomContainer';
 import { CustomInput } from '../../Components/CustomInput';
 import { CustomButtom } from '../../Components/CustomButtom';
-import { GetVerificationCode } from '../../Services';
+import { GetTrakingCode } from '../../Services';
 import { useNavigate } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import logo from '../../assets/logo.png';
@@ -17,22 +17,23 @@ export const TrackingCode = () => {
 
   const handleInputChange = (event) => {
     const value = event.target.value;
-
     if (/^\d*$/.test(value)) {
       setInputValue(value);
     }
   };
 
   const handleButtomClick = () => {
-    console.log('inputValue', inputValue);
-    sessionStorage.setItem('code', inputValue);
-    navigate(`/resumoDoPedido/${inputValue}`);
-
-    // GetVerificationCode(inputValue)
-    //   .then((response) => {
-    //     console.log('response', response);
-    //   })
-    //   .catch((error) => console.log(error));
+    GetTrakingCode(inputValue)
+      .then((response) => {
+        if (response) {
+          sessionStorage.setItem('code', inputValue);
+          navigate(`/resumoDoPedido/${inputValue}`);
+          console.log('response', response);
+        } else {
+          setCodeError(true);
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -58,6 +59,7 @@ export const TrackingCode = () => {
           onClick={handleButtomClick}
           text="Avançar"
           icon={<ArrowForwardIcon />}
+          disable={!inputValue}
         />
       </S.FormBox>
     </CustomContainer>

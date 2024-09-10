@@ -14,6 +14,9 @@ export const ProductBox = styled.div`
 export const ImgProduct = styled.div`
   width: 64px;
   height: 64px;
+  background-image: ${({ img }) => img && `url(${img})`};
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: var(--cor-bordas);
 `;
 

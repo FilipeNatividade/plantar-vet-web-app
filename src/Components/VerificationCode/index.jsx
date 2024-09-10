@@ -8,9 +8,12 @@ import { CustomButtom } from '../../Components/CustomButtom';
 import SearchIcon from '@mui/icons-material/Search';
 import LoopIcon from '@mui/icons-material/Loop';
 
-export const VerificationCode = ({ setCodeTrue }) => {
-  const [inputValue, setInputValue] = useState('');
-  const [codeError, setCodeError] = useState(false);
+export const VerificationCode = ({
+  handleButtomClick,
+  inputValue,
+  setInputValue,
+  codeError,
+}) => {
   const [refreshCode, setRefreshCode] = useState(10);
   const [canResend, setCanResend] = useState(false);
 
@@ -32,11 +35,6 @@ export const VerificationCode = ({ setCodeTrue }) => {
     if (/^\d*$/.test(value)) {
       setInputValue(value);
     }
-  };
-
-  const handleButtomClick = () => {
-    console.log(inputValue);
-    setCodeTrue(true);
   };
 
   const handleResendCode = () => {

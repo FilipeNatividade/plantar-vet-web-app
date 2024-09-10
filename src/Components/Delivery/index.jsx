@@ -3,14 +3,18 @@ import { InformationContainer } from '../InformationContainer';
 import * as S from './styles';
 import { SubTitle, Title } from '../Texts';
 
-export const Delivery = ({ icon }) => {
+export const Delivery = ({ icon, dataAddressee }) => {
   return (
     <InformationContainer title="Dados da entrega" icon={icon}>
       <S.TextBox>
-        <Title props="Nome do destinatário" color="var(--cor-texto-primario)" />
-        <SubTitle props="Rua do destinatário, 000" />
-        <SubTitle props="Nome do bairro, cidade-UF" />
-        <SubTitle props="CEP: 00000-000" />
+        <Title props={dataAddressee.nome} color="var(--cor-texto-primario)" />
+        <SubTitle
+          props={`Rua ${dataAddressee.endereco.logradouro}, ${dataAddressee.endereco.numero}`}
+        />
+        <SubTitle
+          props={`${dataAddressee.endereco.cidade} - ${dataAddressee.endereco.uf}`}
+        />
+        <SubTitle props={`CEP: ${dataAddressee.endereco.cep}`} />
       </S.TextBox>
 
       <S.TextBox>

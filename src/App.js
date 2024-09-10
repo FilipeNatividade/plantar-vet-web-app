@@ -3,17 +3,22 @@ import { AppRoutes } from './AppRoutes';
 import { FooterApp } from './Components/Footer';
 import { MenuMobile } from './Components/MenuMobile';
 import { Menu } from './Components/Menu';
+import { useCustomState } from './Providers/UseCustomContext';
 
 function App() {
+  const { codeTrue } = useCustomState();
+
   return (
     <div className="App">
-      <Menu />
+      {codeTrue && <Menu />}
       <GlobalStyle />
       <AppRoutes />
       <FooterApp />
-      <div className="menu-mobile">
-        <MenuMobile />
-      </div>
+      {codeTrue && (
+        <div className="menu-mobile">
+          <MenuMobile />
+        </div>
+      )}
     </div>
   );
 }
