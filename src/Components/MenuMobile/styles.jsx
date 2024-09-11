@@ -1,3 +1,4 @@
+import { Block } from '@mui/icons-material';
 import styled from 'styled-components';
 
 export const ContainerMobileMenu = styled.nav`
@@ -47,6 +48,7 @@ export const ActiveBar = styled.div`
   height: 4px;
   position: absolute;
   top: 0;
+  display: ${({ active }) => (active ? 'block' : 'none')};
 
   @media only screen and (min-width: 708px) {
     top: auto;

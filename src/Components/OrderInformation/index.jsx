@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Element } from 'react-scroll';
 import { format } from 'date-fns';
 import { Label, Text } from '../Texts';
 import { CustomStepper } from '../CustomStepper';
@@ -43,16 +44,24 @@ export const OrderInformation = ({ data }) => {
         </S.DownloadBtn>
       </S.BtnBox>
 
-      <CustomStepper data={data} icon={<ListIcon />} />
+      <Element name="status">
+        <CustomStepper data={data} icon={<ListIcon />} />
+      </Element>
 
-      <Products icon={<Inventory2OutlinedIcon />} data={data.produtos} />
+      <Element name="produtos">
+        <Products icon={<Inventory2OutlinedIcon />} data={data.produtos} />
+      </Element>
 
-      <Payment icon={<LocalAtmOutlinedIcon />} data={data.pagamento} />
+      <Element name="pagamento">
+        <Payment icon={<LocalAtmOutlinedIcon />} data={data.pagamento} />
+      </Element>
 
-      <Delivery
-        icon={<LocalShippingOutlinedIcon />}
-        dataAddressee={data.destinatario}
-      />
+      <Element name="entrega">
+        <Delivery
+          icon={<LocalShippingOutlinedIcon />}
+          dataAddressee={data.destinatario}
+        />
+      </Element>
     </S.Container>
   );
 };
